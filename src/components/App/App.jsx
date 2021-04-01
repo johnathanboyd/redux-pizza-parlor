@@ -7,6 +7,7 @@ function App() {
 
   useEffect( ()=>{
     getMenu();
+    getOrder();
   }, [])
 
  const [ tempOrder, setTempItem ] = useState( 
@@ -25,21 +26,31 @@ function App() {
   let getMenu=()=>{
     console.log( ' in getMenu');
     axios.get( '/api/pizza' ).then( (response)=>{
-      console.log( 'back from GET with:', response );
+      console.log( 'back from getMenu GET with:', response );
     }).catch( ( err ) =>{
       console.log( err );
       alert( 'err' ); 
     })
   }
-
+// post to our our order list
   let newOrder=()=>{
     console.log( 'in newOrder' );
     axios.post( '/api/order', tempOrder ).then( ( response )=>{
-      console.log( 'back from POST with:', response );
+      console.log( 'back from newOrder POST with:', response );
       getMenu();
     }).catch( ( err )=>{
       console.log( err );
       alert( 'newOrder not working' )
+    })
+  }
+  // get route for order
+  let getOrder=()=>{
+    console.log( ' in getMenu');
+    axios.get( '/api/order' ).then( (response)=>{
+      console.log( 'back from getOrder GET with:', response );
+    }).catch( ( err ) =>{
+      console.log( err );
+      alert( 'err' ); 
     })
   }
 
