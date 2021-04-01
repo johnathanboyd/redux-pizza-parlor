@@ -9,7 +9,17 @@ function App() {
     getMenu();
   }, [])
 
- const [ tempOrder, setTempItem ] = useState( { "customer_name": "Donatello", "street_address": "20 W 34th St", "city": "New York", "zip": "10001", "total": "27.98", "type": "Pickup", "pizzas": [{ "id": "1", "quantity": "1" },{ "id": "2", "quantity": "1" }]}
+ const [ tempOrder, setTempItem ] = useState( 
+   { "customer_name": "Donatello", 
+   "street_address": "20 W 34th St", 
+   "city": "New York", 
+   "zip": "10001", 
+   "total": "27.98", 
+   "type": "Pickup", 
+   "pizzas": [
+     {"id": "1", "quantity": "1" },
+      { "id": "2", "quantity": "1" }]
+  }
 ) 
 // get route for the menuItems
   let getMenu=()=>{
@@ -41,7 +51,7 @@ function App() {
     
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
-        
+    
       </div>
     );
   }
