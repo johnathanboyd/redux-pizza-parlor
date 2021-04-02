@@ -9,16 +9,17 @@ import logger from 'redux-logger';
 // create reducers
 const pizzaMenu = ( state=[], action )=>{
     if( action.type === 'setPizzaMenu' ){
-        console.log( 'set pizzaMenu state')
+        console.log( 'set pizzaMenu state');
         state = [ action.payload ];
     }
+    console.log(state);
     return state;
 }
 
 
 const store = createStore(
-    combineReducers(
-        {
+    combineReducers({
+        pizzaMenu: pizzaMenu
 
     }),
     applyMiddleware( logger )

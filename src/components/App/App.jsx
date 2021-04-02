@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux'
 import React from 'react';
 import axios from 'axios';
 import './App.css';
 
 function App() {
+
+  // tell app to use dispatch
+  const dispatch = useDispatch();
 
   useEffect( ()=>{
     getMenu();
@@ -26,11 +30,11 @@ function App() {
   let getMenu=()=>{
     console.log( ' in getMenu');
     axios.get( '/api/pizza' ).then( (response)=>{
-      dispatch( { type:'' , payload:'' } );
+      dispatch( { type:'setPizzaMenu' , payload: response.data } );
       console.log( 'back from getMenu GET with:', response );
     }).catch( ( err ) =>{
       console.log( err );
-      alert( 'err' ); 
+      alert( 'err from getMenu' ); 
     })
   }
 // post to our our order list
@@ -51,7 +55,7 @@ function App() {
       console.log( 'back from getOrder GET with:', response );
     }).catch( ( err ) =>{
       console.log( err );
-      alert( 'err' ); 
+      alert( 'err from getOrder' ); 
     })
   }
 
