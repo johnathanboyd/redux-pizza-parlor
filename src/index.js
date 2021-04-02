@@ -16,6 +16,15 @@ const pizzaMenu = ( state=[], action )=>{
     return state;
 }
 
+const currentOrder =( state=[], action )=>{
+    console.log( 'set currentOrder state')
+    if( action.type === 'setCurrentOrder'){
+        state = [...action.payload];
+    }
+    console.log( state );
+    return state;
+}
+
 
 const store = createStore(
     combineReducers({

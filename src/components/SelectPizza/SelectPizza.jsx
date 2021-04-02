@@ -7,16 +7,19 @@ function SelectPizza(){
         return store.pizzaMenu;
     })
     return(
-        
+        <>
         <div>
             <h2>MENU</h2>
-            <ul>
-                { pizza.map( ( item )=>
-                    <SelectPizzaItem item={ item } key={ item.id }/>
-                )}
-            </ul>     
+    
+            { pizza.map( ( item )=>
+                <SelectPizzaItem item={ item } key={ item.id }/>
+            )}
+ 
         </div>
-        
+        <div>
+            <button>Proceed to Checkout</button>
+        </div>
+        </>        
     )
 }
 
