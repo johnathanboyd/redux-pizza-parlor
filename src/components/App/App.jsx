@@ -26,6 +26,7 @@ function App() {
   let getMenu=()=>{
     console.log( ' in getMenu');
     axios.get( '/api/pizza' ).then( (response)=>{
+      dispatch( { type:'' , payload:'' } );
       console.log( 'back from getMenu GET with:', response );
     }).catch( ( err ) =>{
       console.log( err );
