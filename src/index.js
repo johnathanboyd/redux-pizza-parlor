@@ -8,9 +8,9 @@ import logger from 'redux-logger';
 
 // create reducers
 const pizzaMenu = ( state=[], action )=>{
+    console.log( 'set pizzaMenu state', action);
     if( action.type === 'setPizzaMenu' ){
-        console.log( 'set pizzaMenu state');
-        state = [ action.payload ];
+        state = action.payload;
     }
     console.log(state);
     return state;
